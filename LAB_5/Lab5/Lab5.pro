@@ -17,12 +17,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ../../../../Desktop/C++_Qt/LAB_5/Lab5/doublylist.cpp \
+    ../../../../Desktop/C++_Qt/LAB_5/Lab5/twoqueues.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    queue.cpp
 
 HEADERS += \
     ../../../../Desktop/C++_Qt/LAB_5/Lab5/doublylist.h \
-    mainwindow.h
+    ../../../../Desktop/C++_Qt/LAB_5/Lab5/twoqueues.h \
+    mainwindow.h \
+    queue.h
 
 FORMS += \
     mainwindow.ui
