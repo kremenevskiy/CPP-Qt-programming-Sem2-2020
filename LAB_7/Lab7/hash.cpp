@@ -106,8 +106,14 @@ void Hash::removeItem(QString value){
 int Hash::numberOfItemsInIndex(int index){
 	int count = 0;
 
+
 	Item* current = HashTable[index];
 
+	if(current->value == "NULL"){
+		return count;
+	}
+
+	count ++;
 	while(current->next){
 		count ++;
 		current = current->next;
@@ -118,7 +124,7 @@ int Hash::numberOfItemsInIndex(int index){
 
 
 QString Hash::printItemsInIndex(int index){
-	QString bucketValues = QString::number(index) + ". ";
+	QString bucketValues = QString::number(index + 1) + ". ";
 
 	Item *current = HashTable[index];
 	while(current){

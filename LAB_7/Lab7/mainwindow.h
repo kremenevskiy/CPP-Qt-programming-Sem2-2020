@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "hash.h"
+#include "randhash.h"
 #include <QStandardItemModel>
 #include <QMessageBox>
 #include <QDebug>

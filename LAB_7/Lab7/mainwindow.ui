@@ -397,7 +397,7 @@ QComboBox::down-arrow
      </rect>
     </property>
     <property name="text">
-     <string>Random Hash Value</string>
+     <string>Random Hash Values</string>
     </property>
    </widget>
   </widget>

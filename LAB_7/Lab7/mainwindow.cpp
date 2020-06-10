@@ -37,6 +37,11 @@ MainWindow::MainWindow(QWidget *parent)
 		updateHashTables();
 	});
 
+
+	connect(ui->randHashButton, &QPushButton::clicked, [&](){
+		RandHash::randomizeHash(&hashTable, 20);
+	});
+
 	updateHashTables();
 }
 
