@@ -3,16 +3,17 @@
 
 #include <QString>
 #include <QDebug>
+#include <QObject>
 
+struct Item{
+	QString value;
+	Item *next;
+};
 
-
-class Hash
+class Hash : public QObject
 {
+	Q_OBJECT
 public:
-	struct Item{
-		QString value;
-		Item *next;
-	};
 
 	Hash();
 	static const int hashTableSize = 10;
@@ -23,12 +24,14 @@ public:
 	void addItem(QString value);
 
 	int numberOfItemsInIndex(int index);
-	Item* findItem(	 )
+	Item* findItem(QString value);
+	void removeItem(QString value);
 
+	QString printItemsInIndex(int index);
 
-
-
-private:
+signals:
+	void addedItem();
+	void removedItem();
 
 };
 

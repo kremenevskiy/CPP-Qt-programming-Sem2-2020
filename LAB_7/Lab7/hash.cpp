@@ -28,7 +28,7 @@ int Hash::hash(QString key){
 void Hash::addItem(QString value){
 	int index = hash(value);
 
-	if(!HashTable[index]->next){
+	if(HashTable[index]->value == "NULL"){
 		HashTable[index]->value = value;
 	}
 	else{
@@ -37,7 +37,7 @@ void Hash::addItem(QString value){
 		newItem->value = value;
 		newItem->next = nullptr;
 
-		while(!current->next){
+		while(current->next){
 			current = current->next;
 		}
 
@@ -45,6 +45,60 @@ void Hash::addItem(QString value){
 
 
 	}
+
+	emit addedItem();
+}
+
+
+Item *Hash::findItem(QString value){
+	int index = hash(value);
+	bool isExists = false;
+
+	Item* current = HashTable[index];
+	while (current) {
+		if(current->value == value){
+			isExists = true;
+			return current;
+		}
+		current = current->next;
+	}
+
+	return nullptr;
+}
+
+
+void Hash::removeItem(QString value){
+	int index = hash(value);
+
+	Item *head = HashTable[index];
+	Item* current = head->next;
+
+
+	if(head->value == value){
+		if(!head->next){
+			head->value = "NULL";
+			emit removedItem();
+			return;
+		}
+		current = head;
+		head = head->next;
+		delete current;
+		emit removedItem();
+		return;
+	}
+
+	Item* prev = head;
+	while(current){
+		if(current->value == value){
+			prev->next = current->next;
+			delete current;
+			emit removedItem();
+			return;
+		}
+		current = current->next;
+		prev = prev->next;
+	}
+
 }
 
 
@@ -59,4 +113,16 @@ int Hash::numberOfItemsInIndex(int index){
 	}
 
 	return count;
+}
+
+
+QString Hash::printItemsInIndex(int index){
+	QString bucketValues = QString::number(index) + ". ";
+
+	Item *current = HashTable[index];
+	while(current){
+		bucketValues += " -> " + current->value;
+		current = current->next;
+	}
+	return bucketValues;
 }

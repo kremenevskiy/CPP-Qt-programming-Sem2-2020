@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     ../../../../Desktop/C++_Qt/LAB_7/Lab7/hash.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    randhash.cpp
 
 HEADERS += \
     ../../../../Desktop/C++_Qt/LAB_7/Lab7/hash.h \
-    mainwindow.h
+    mainwindow.h \
+    randhash.h
 
 FORMS += \
     mainwindow.ui

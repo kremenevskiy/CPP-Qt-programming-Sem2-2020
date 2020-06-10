@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include "hash.h"
+#include <QStandardItemModel>
+#include <QMessageBox>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,7 +19,17 @@ public:
 	MainWindow(QWidget *parent = nullptr);
 	~MainWindow();
 
+	void updateHashTables();
+
+public slots:
+	void AddBtn();
+	void removeBtn();
+	void searchBtn();
+	void randHashBtn();
+
 private:
 	Ui::MainWindow *ui;
+	QStandardItemModel *model;
+	Hash *hashTable;
 };
 #endif // MAINWINDOW_H
