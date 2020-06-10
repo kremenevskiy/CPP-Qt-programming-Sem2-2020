@@ -71,7 +71,7 @@ void Hash::removeItem(QString value){
 	int index = hash(value);
 
 	Item *head = HashTable[index];
-	Item* current = head->next;
+	Item *current = head->next;
 
 
 	if(head->value == value){
@@ -80,9 +80,10 @@ void Hash::removeItem(QString value){
 			emit removedItem();
 			return;
 		}
-		current = head;
-		head = head->next;
-		delete current;
+		Item *oldHead = head;
+		HashTable[index] = HashTable[index]->next;
+		delete oldHead;
+
 		emit removedItem();
 		return;
 	}
