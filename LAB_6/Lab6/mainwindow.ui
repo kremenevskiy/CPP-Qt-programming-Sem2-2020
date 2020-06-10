@@ -258,8 +258,8 @@ QComboBox::down-arrow
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>90</y>
+      <x>380</x>
+      <y>30</y>
       <width>221</width>
       <height>251</height>
      </rect>

@@ -107,7 +107,7 @@ void MainWindow::removeBtn(){
 
 
 void MainWindow::searchBtn(){
-	if(ui->removeKeyEdit->text().isEmpty()){
+	if(ui->searchKeyEdit->text().isEmpty()){
 		QMessageBox::warning(this, "Empty lines!", "Set key for search");
 		return;
 	}
